@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-press-start: "Press Start 2P", monospace;
+}
+
+/* Custom pixel-art cursor (8-bit arrow) applied everywhere */
+html,
+body {
+  height: 100%;
+  cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDE2IDE2IiBzaGFwZS1yZW5kZXJpbmc9ImNyaXNwRWRnZXMiPjxwYXRoIGZpbGw9IiMyYjIxNDAiIGQ9Ik0yIDF2MTBoMnYyaDJ2Mmgydi0yaDJ2LTJoMnYtMmgydi0yaC0yVjZoLTJWNGgtMlYyaC0yVjFaIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTMgM3Y2aDF2MWgxdjFoMXYtMWgydjFoLTF2MWgxdi0xaDF2LTFoMXYtMWgxVjhoLTJWNmgtMVY0aC0xVjNaIi8+PC9zdmc+")
+    2 1, auto;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: var(--font-press-start);
+  color: #2b2140;
+  -webkit-font-smoothing: none;
+  image-rendering: pixelated;
+}
+
+/* Buttons and interactive elements keep the pixel cursor */
+button,
+a,
+[role="button"],
+.window-titlebar {
+  cursor: inherit;
+}
+
+/* Crisp scaling for all pixel-art SVGs */
+svg {
+  shape-rendering: crispEdges;
+}
+
+/* Prevent text selection while dragging windows */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Custom thin scrollbar for window bodies */
+.window-body::-webkit-scrollbar {
+  width: 10px;
+}
+.window-body::-webkit-scrollbar-track {
+  background: #f3ecff;
+}
+.window-body::-webkit-scrollbar-thumb {
+  background: #2b2140;
+  border: 2px solid #f3ecff;
+}
